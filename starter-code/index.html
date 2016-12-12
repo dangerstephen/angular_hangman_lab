@@ -22,9 +22,113 @@ _________
 |       |      | (_| | | | | (_| | |_| | | (_| | |
 |      / \      \__,_|_| |_|\__, |\__,_|_|\__,_|_|
 |                           |___/
-|___                                        hang-man
+|_____________                                        hang-man
 
     </pre>
+    <div ng-if="hangman.game.triesRemaining == 7">
+         <pre class='col-md-6 col-md-offset-3'>
+         _____
+         |/
+         |
+         |
+         |
+         |
+         |
+         |_____________
+         </pre>
+       </div>
+
+    <div ng-if="hangman.game.triesRemaining == 6">
+         <pre class='col-md-6 col-md-offset-3'>
+         _________
+         |/
+         |
+         |
+         |
+         |
+         |
+         |_____________
+         </pre>
+       </div>
+       <div ng-if="hangman.game.triesRemaining == 5">
+         <pre class='col-md-6 col-md-offset-3'>
+         _________
+         |/      |
+         |
+         |
+         |
+         |
+         |
+         |_____________
+         </pre>
+       </div>
+       <div ng-if="hangman.game.triesRemaining == 4">
+         <pre class='col-md-6 col-md-offset-3'>
+         _________
+         |/      |
+         |      (_)
+         |
+         |
+         |
+         |
+         |_____________
+         </pre>
+       </div>
+       <div ng-if="hangman.game.triesRemaining == 3">
+         <pre class='col-md-6 col-md-offset-3'>
+         _________
+         |/      |
+         |      (_)
+         |      \|/
+         |
+         |
+         |
+         |_____________
+         </pre>
+       </div>
+       <div ng-if="hangman.game.triesRemaining == 2">
+         <pre class='col-md-6 col-md-offset-3'>
+         _________
+         |/      |
+         |      (_)
+         |      \|/
+         |       |
+         |
+         |
+         |_____________
+         </pre>
+       </div>
+       <div ng-if="hangman.game.triesRemaining == 1">
+         <pre class='col-md-6 col-md-offset-3'>
+         _________
+         |/      |
+         |      (_)
+         |      \|/
+         |       |
+         |      /
+         |
+         |_____________
+         </pre>
+       </div>
+       <div ng-if="hangman.game.triesRemaining == 0">
+         <pre class='col-md-6 col-md-offset-3'>
+         _________
+         |/      |
+         |      (_)
+         |      \|/
+         |       |
+         |      / \
+         |
+         |_____________
+         YOU DIE!
+         </pre>
+       </div>
+       <div class='row' id='statuses'>
+         <div class='col-sm-1 table small-font'>Win status:
+           <span class='glyphicon' ng-class="hangman.game.gameWon ? 'glyphicon-ok' : 'glyphicon-remove'"></span>
+         </div>
+
+
     <div class='col-sm-12 col-md-6 col-md-offset-3 text-center'>
       {{ hangman.game.triesRemaining }} tries remaining
     </div>
@@ -47,8 +151,8 @@ _________
     <!-- <div class='col-sm-12 text-center' id='guesses'>{{ hangman.game.guesses }}</div> -->
     <div class='col-sm-12 text-center' id='guesses'>
       <span class='wide' data-ng-repeat="letter in hangman.game.guesses">
-          {{letter}}
-        </span>
+           {{letter}}
+         </span>
     </div>
   </div>
 
@@ -60,10 +164,6 @@ _________
       <input type='text' size='1' id='guess' ng-model='hangman.game.input' ng-change='hangman.guessLetter()' autofocus>
     </div>
   </div>
-  <div class='row' id='statuses'>
-    <div class='col-sm-1 table small-font'>Win status:
-      <span class='glyphicon' ng-class="hangman.game.gameWon ? 'glyphicon-ok' : 'glyphicon-remove'"></span>
-    </div>
   </div>
 </div>
 </body>

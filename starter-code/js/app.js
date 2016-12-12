@@ -8,7 +8,9 @@ angular
   function HangmanController() {
   var vm = this;
 
-  vm.game = new HangmanGame('elephant');
+  var randomWord = ["mystery", "elephant", "barmen"];
+
+  vm.game = new HangmanGame(randomWord[Math.floor(Math.random() * randomWord.length)]);
   vm.guessLetter = function (){
 
     vm.game.guess(vm.game.input);
